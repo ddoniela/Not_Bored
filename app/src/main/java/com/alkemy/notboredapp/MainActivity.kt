@@ -3,6 +3,8 @@ package com.alkemy.notboredapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.core.widget.doAfterTextChanged
 import com.alkemy.notboredapp.databinding.ActivityMainBinding
 
@@ -31,8 +33,13 @@ class MainActivity : AppCompatActivity() {
             if (value != "") {
                 binding.btStart.isEnabled = value.toInt() > 0
             } else {
-                binding.btStart.isEnabled = false
+                binding.btStart.isEnabled = true
             }
         }
-    }
-}
+
+        lateinit var menu: Spinner
+        menu = binding.spinnerPrice
+        val priceList = arrayOf("Free", "Low", "Medium", "High")
+        menu.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, priceList)
+
+    }}
