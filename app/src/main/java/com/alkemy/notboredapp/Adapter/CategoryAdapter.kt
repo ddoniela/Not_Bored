@@ -8,7 +8,9 @@ import com.alkemy.notboredapp.R
 import com.alkemy.notboredapp.databinding.CardLayoutBinding
 import com.alkemy.notboredapp.model.Category
 
-class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
+class CategoryAdapter(
+    var onClick: () -> Unit
+) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
     private var listCategory = emptyList<Category>()
 
@@ -25,7 +27,10 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val category = listCategory[position]
-        holder.binding.tvCategorieTitle.text = category.nome
+        holder.binding.tvCategoryTitle.text = category.nome
+        holder.binding.btOpen.setOnClickListener {
+            onClick()
+        }
     }
 
 
@@ -37,6 +42,4 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
         listCategory = list
         notifyDataSetChanged()
     }
-
-
 }

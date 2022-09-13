@@ -19,13 +19,13 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
             android:background="#F8EAEF"
-            app:layout_constraintBottom_toBottomOf="@+id/tvCategorieTitle"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCategoryTitle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvCategorieTitle"
+            app:layout_constraintStart_toEndOf="@+id/tvCategoryTitle"
             app:srcCompat="@drawable/ic_next" />
 
         <TextView
-            android:id="@+id/tvCategorieTitle"
+            android:id="@+id/tvCategoryTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="30sp"
@@ -47,7 +47,7 @@
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCategorieTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/tvCategoryTitle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

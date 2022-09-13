@@ -16,19 +16,7 @@ class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySecondBinding.inflate(layoutInflater)
-        binding2 = CardLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //setContentView(binding2.root)
-
-
-        binding2.btOpen.setOnClickListener {
-            val intent: Intent = Intent(this, ItemActivity::class.java)
-            startActivity(intent)
-
-        }
-
-
-
 
         val listCategories = listOf(
             Category(
@@ -60,16 +48,16 @@ class SecondActivity : AppCompatActivity() {
             )
         )
 
-
-        val adapter = CategoryAdapter()
+        val adapter = CategoryAdapter(::onClickCategory)
         binding.rvRecyclerView.layoutManager = LinearLayoutManager(applicationContext)
         binding.rvRecyclerView.adapter = adapter
         binding.rvRecyclerView.setHasFixedSize(true)
 
         adapter.setList(listCategories)
-
-
     }
 
-
+    fun onClickCategory() {
+        val intent = Intent(this, ItemActivity::class.java)
+        startActivity(intent)
+    }
 }
