@@ -3,6 +3,7 @@ package com.alkemy.notboredapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alkemy.notboredapp.Adapter.CategoryAdapter
 import com.alkemy.notboredapp.databinding.ActivitySecondBinding
@@ -11,12 +12,14 @@ import com.alkemy.notboredapp.model.Category
 
 class SecondActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySecondBinding
-    private lateinit var binding2: CardLayoutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         val listCategories = listOf(
             Category(
